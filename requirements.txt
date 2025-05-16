@@ -2,3 +2,6 @@ fyers-apiv3
 python-dotenv
 plotly
 pandas
+pynput
+selenium
+undetected_chromedriver
