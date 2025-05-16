@@ -21,8 +21,12 @@ if resolution not in valid_resolutions:
     print("Invalid resolution! Please enter a valid resolution.")
     exit(1)
 
+# Replace instruments as you want, refer: https://myapi.fyers.in/docsv3#tag/Appendix/Symbology-Format
+# symbol = "NSE:RELIANCE-EQ"
+symbol = "NSE:NIFTY50-INDEX"
+
 data = {
-    "symbol": "NSE:NIFTY50-INDEX",
+    "symbol": symbol,
     "resolution": resolution,
     "date_format": "1",
     "range_from": date_str,
@@ -32,7 +36,7 @@ data = {
 
 response = fyers.history(data=data)
 
-output_file = f"historical-data/data/nifty_data_{date_str}_{resolution}.json"
+output_file = f"historical-data/data/{symbol}_{date_str}_{resolution}.json"
 with open(output_file, "w") as f:
     json.dump(response, f, indent=4)
 
